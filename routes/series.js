@@ -1,5 +1,6 @@
 
-/*
+/* Orientação =>
+
   GET /series == retorna todas as series
   POST /series == crio uma nova serie
   GET /series/id == retorna uma serie
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
   const series = await Serie.find({})
   res.send(series)
 })
+
 router.post('/', async (req, res) => {
   const serie = new Serie(req.body)
   try {
@@ -27,6 +29,7 @@ router.post('/', async (req, res) => {
     })
   }
 })
+
 router.delete('/:id', async (req, res) => {
   await Serie.remove({ _id: req.params.id })
   res.send({
